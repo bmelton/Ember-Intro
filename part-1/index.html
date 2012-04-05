@@ -27,14 +27,11 @@
 				}
 			});
 
-			var original_items = [
+			var items = [
 				Example.Item.create({ name: "Barry" }),
 				Example.Item.create({ name: "Misty" }),
 				Example.Item.create({ name: "Derrick" })
 			]
-			var items = original_items.map(function(item, index, self) { 
-				return item;
-			});
 
 			Example.LoopingView = Ember.View.extend({ 
 				items: items
