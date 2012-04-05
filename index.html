@@ -6,8 +6,8 @@
 	</head>
 	<body>
 		<script type="text/x-handlebars">
-			<h1>{{ Example.name }}</h1>
 			<img {{bindAttr src="Example.logo"}} alt="Logo"><br />
+			<h1>{{ Example.name }}</h1>
 
 			{{#view Example.LoopingView id="looping-view" }}
 				{{#each items}}
@@ -18,7 +18,7 @@
 		<script>
 			Example = Ember.Application.create({ 
 				name: "Example Application",
-				logo: "http://static.stablestart.com/avatars/hobbes_1.jpg"
+				logo: "http://sympodial.com/images/logo.png"
 			});
 
 			Example.Item = Ember.Object.extend({ 
