@@ -21,11 +21,7 @@
 				logo: "http://sympodial.com/images/logo.png"
 			});
 
-			Example.Item = Ember.Object.extend({ 
-				add: function() {
-					console.log(this.get("name"));
-				}
-			});
+			Example.Item = Ember.Object.extend();
 
 			var items = [
 				Example.Item.create({ name: "Barry" }),
