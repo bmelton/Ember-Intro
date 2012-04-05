@@ -1,9 +1,41 @@
 <!doctype html>
 	<head>
 		<title>Ember test</title>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+		<script type="text/javascript" src="lib/ember.min.js"></script>
 	</head>
 	<body>
-		<h1>Ember Test</h1>
-		{{ test }}
+		<script type="text/x-handlebars">
+			<h1>{{ Example.name }}</h1>
+			<img {{bindAttr src="Example.logo"}} alt="Logo"><br />
+
+			{{#view Example.LoopingView id="looping-view" }}
+				{{#each items}}
+					<li>Hello, {{ name }}!</li>
+				{{/each}}
+			{{/view }}
+		</script>
+		<script>
+			Example = Ember.Application.create({ 
+				name: "Example Application",
+				logo: "http://static.stablestart.com/avatars/hobbes_1.jpg"
+			});
+
+			Example.Item = Ember.Object.extend({ 
+				add: function() {
+					console.log(this.get("name"));
+				}
+			});
+
+			var items = [
+				Example.Item.create({ name: "Barry" }),
+				Example.Item.create({ name: "Misty" }),
+				Example.Item.create({ name: "Derrick" })
+			]
+
+			Example.LoopingView = Ember.View.extend({ 
+				items: items
+			});
+		</script>
 	</body>
 </html>
