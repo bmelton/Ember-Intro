@@ -39,7 +39,7 @@
 					var value = this.get('value');
 					console.log("Value: " + value);
 					Example.set("searchString", value);
-					Example.populate.getTweets();
+					//Example.populate.getTweets();
 				}
 			});
 
@@ -65,7 +65,7 @@
 							self.addItem(Example.Item.create(data.results[i]));
 						};
 					})
-				}
+				}.observes("Example.searchString")
 			});
 		</script>
 	</body>
